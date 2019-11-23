@@ -27,3 +27,11 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Notes
+
+Turn off eslint console.log error 
+
+```
+/* eslint no-console: "off"*/
+```

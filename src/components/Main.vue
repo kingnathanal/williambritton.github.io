@@ -97,7 +97,7 @@ body {
   background-color: #034f84;
 }
 .header {
-  height: 100vh;
+  height: 85vh;
   overflow: hidden;
 }
 .resume-card {
@@ -133,28 +133,59 @@ body {
   font-size: 30pt;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1200px) {
+  .resume-card {
+    width: 70vw;
+  }
   .namelogo {
     font-size: 5rem;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .namelogo {
+    font-size: 4rem;
+    letter-spacing: 3px;
   }
   .sidenote {
     font-size: 1rem;
     letter-spacing: 4px;
   }
   .resume-card {
-    width: 80vw;
+    width: 90vw;
   }
 }
 
 @media only screen and (max-width: 600px) {
   .namelogo {
     font-size: 2rem;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
   }
   .sidenote {
     font-size: 0.8rem;
     letter-spacing: 3px;
+  }
+  .resume-card {
+    height: 75vh;
+    width: 90vw;
+    margin-bottom: 5px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .namelogo {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+  .sidenote {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+  }
+  .resume-card {
+    height: 75vh;
+    width: 90vw;
+    margin-bottom: 5px;
   }
 }
 </style>
