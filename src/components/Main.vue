@@ -1,40 +1,24 @@
 <template>
   <div class="container-fluid h-100">
-    <div class="row bg-blue align-items-end header pb-3">
+    <div class="row sticky-top">
+      <div class="col content bg-blue" v-scroll="handleScroll">
+        <h1 class="namelogo" :class="nameClass">William Britton Jr.</h1>
+        <span class="p-2 text-white" :class="noteClass">Software Engineer & DevOps Developer</span>
+      </div>
+    </div>
+    <div class="row">
       <div class="col">
-        <div class="mx-auto text-center justify-content-bottom">
-          <div class="card resume-card mx-auto">
-            <div class="card-body resume-container text-left">
-              <div class="container">
-                <span class="h4 skills-title w-100">~ $ skills:</span>
-                <br />
-                <br />
-                <span
-                  v-for="(skill, i) in myskills"
-                  :key="i"
-                  class="badge skill-badge m-1 p-2"
-                  :class="getRandomBadgeColor()"
-                  :style="{fontSize: getRandomFontSize()}"
-                >{{skill}}</span>
-                <br />
-                <br />
-                <span class="h4 skills-title w-100">~ $ experience:</span>
-                <br />
-                <br />
-                <p>Sunsoft Technologies - Detroit, MI</p>
-                <p>DXC Technology - Detroit, MI</p>
-                <p>Covisint - Detroit, MI</p>
-                <p>Hewlett Packard - Detroit, MI</p>
-                <p>The State of Michigan - Lansing, MI</p>
-              </div>
-            </div>
-          </div>
-          <h1 class="namelogo">
-            William
-            <span class="lastname">Britton Jr.</span>
-          </h1>
-          <span class="p-2 sidenote text-white">Software Engineer, Full Stack DevOps Developer</span>
-        </div>
+        <ContactIcons />
+      </div>
+    </div>
+    <div class="row pb-3 mb-5 skills-row">
+      <div class="col">
+        <Skills v-bind:skills="myskills" v-bind:badgecolors="badgecolors" />
+      </div>
+    </div>
+    <div class="row bg-light">
+      <div class="col">
+        <Jobs v-bind:jobs="jobs" />
       </div>
     </div>
   </div>
@@ -42,9 +26,17 @@
 
 <script>
 //import Sidebar from "./Sidebar.vue";
+import ContactIcons from "./ContactIcons.vue";
+import Jobs from "./Jobs.vue";
+import Skills from "./Skills.vue";
 
 export default {
   name: "Main",
+  components: {
+    ContactIcons,
+    Jobs,
+    Skills
+  },
   data() {
     return {
       myskills: [
@@ -56,13 +48,16 @@ export default {
         "JavaScript",
         "JQuery",
         "JSON",
-        "Oracle/PLSQL",
+        "Oracle",
+        "PLSQL",
         "Git",
         "Jenkins CI",
         "DevOps",
         "Tomcat",
-        "IBM WebSphere",
-        "Open Liberty"
+        "WebSphere",
+        "Open Liberty",
+        "Docker",
+        "Linux"
       ],
       badgecolors: [
         "",
@@ -73,17 +68,50 @@ export default {
         "badge-warning",
         "badge-info",
         "badge-dark"
-      ]
+      ],
+      jobs: [
+        {
+          name: "Sunsoft Technologies",
+          years: "2019 - current",
+          position: "Senior Software Engineer"
+        },
+        {
+          name: "DXC Technology",
+          years: "2014 - 2019",
+          position: "Application Consultant Developer II"
+        },
+        {
+          name: "Covisint Corp",
+          years: "2013-2014",
+          position: "DevOps .Net Developer"
+        },
+        {
+          name: "Hewlett Packard",
+          years: "2011-2013",
+          position: "Information Developer II"
+        },
+        {
+          name: "The State of Michigan",
+          years: "2010-2011",
+          position: "Junior Java/J2EE Developer"
+        }
+      ],
+      nameClass: "name-lg",
+      noteClass: "side-note-lg"
     };
   },
   methods: {
-    getRandomBadgeColor() {
-      var rndnum = Math.floor(Math.random() * 7 + 1);
-      return this.badgecolors[rndnum];
-    },
-    getRandomFontSize() {
-      var rndnum = Math.floor(Math.random() * 25 + 12);
-      return rndnum + "pt";
+    handleScroll() {
+      /* eslint no-console: "off"*/
+      if (window.scrollY > 50) {
+        this.nameClass = "name-sm";
+        this.noteClass = "side-note-sm";
+      }
+
+      if (window.scrollY < 50) {
+        this.nameClass = "name-lg";
+        this.noteClass = "side-note-lg";
+      }
     }
   }
 };
@@ -93,99 +121,108 @@ export default {
 body {
   background-color: #034f84;
 }
+.content {
+  text-align: right;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  color: #fff;
+}
 .bg-blue {
   background-color: #034f84;
 }
-.header {
-  height: 85vh;
-  overflow: hidden;
-}
-.resume-card {
-  height: 70vh;
-  width: 40vw;
-  overflow-y: auto;
-}
-.resume-container {
-  background-color: #ffffff;
-}
-.sidenote {
+.side-note-lg {
   font-size: 2rem;
   letter-spacing: 6px;
+  transition: font-size 2s;
+  -webkit-transition: font-size 2s;
+  -moz-transition: font-size 2s;
+  -o-transition: font-size 2s;
 }
-.namelogo {
+.side-note-sm {
+  font-size: 1rem;
+  letter-spacing: 6px;
+  transition: font-size 2s;
+  -webkit-transition: font-size 2s;
+  -moz-transition: font-size 2s;
+  -o-transition: font-size 2s;
+}
+.name-logo {
   color: #ffffff;
-  font-size: 7rem;
   text-shadow: rgba(0, 0, 0, 0.5) -1px 0, rgba(0, 0, 0, 0.3) 0 -1px,
     rgba(255, 255, 255, 0.5) 0 1px, rgba(0, 0, 0, 0.3) -1px -2px;
   letter-spacing: 6px;
+  transition: font-size 2s;
 }
-.skills-title {
-  font-family: "Courier New", Courier, monospace;
-  font-weight: bold;
+.name-lg {
+  font-size: 4rem;
+  transition: font-size 2s, margin-top 2s;
+  -webkit-transition: font-size 2s;
+  -moz-transition: font-size 2s;
+  -o-transition: font-size 2s;
+  margin-top: 10px;
 }
-.skill-badge {
-  min-width: 70px;
-  text-align: center;
-  font-size: 16pt;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-}
-.skill-badge:hover {
-  font-size: 30pt;
-}
+.name-sm {
+  font-size: 2rem;
 
-@media only screen and (max-width: 1200px) {
-  .resume-card {
-    width: 70vw;
-  }
-  .namelogo {
-    font-size: 5rem;
-    letter-spacing: 3px;
-  }
+  transition: font-size 2s, margin-top 2s;
+  -webkit-transition: font-size 2s;
+  -moz-transition: font-size 2s;
+  -o-transition: font-size 2s;
+  margin-top: 5px;
+}
+.skills-row {
+  min-height: 80vh;
 }
 
 @media only screen and (max-width: 900px) {
-  .namelogo {
-    font-size: 4rem;
+  .name-lg,
+  .name-sm {
+    font-size: 3rem;
     letter-spacing: 3px;
   }
-  .sidenote {
+  .side-note-lg,
+  .side-note-sm {
     font-size: 1rem;
     letter-spacing: 4px;
   }
-  .resume-card {
-    width: 90vw;
+  .content {
+    text-align: center;
+  }
+  .skills-row {
+    min-height: 60vh;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .namelogo {
+  .name-lg,
+  .name-sm {
     font-size: 2rem;
     letter-spacing: 2px;
   }
-  .sidenote {
+  .side-note-lg,
+  .side-note-sm {
     font-size: 0.8rem;
     letter-spacing: 3px;
   }
-  .resume-card {
-    height: 75vh;
-    width: 90vw;
-    margin-bottom: 5px;
+  .content {
+    text-align: center;
   }
 }
 
 @media only screen and (max-width: 400px) {
-  .namelogo {
+  .name-lg,
+  .name-sm {
     font-size: 2rem;
     letter-spacing: 1px;
   }
-  .sidenote {
+  .side-note-lg,
+  .side-note-sm {
     font-size: 0.7rem;
     letter-spacing: 1px;
   }
-  .resume-card {
-    height: 75vh;
-    width: 90vw;
-    margin-bottom: 5px;
+  .content {
+    text-align: center;
   }
 }
 </style>

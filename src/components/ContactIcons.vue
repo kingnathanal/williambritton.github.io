@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar bg-blue p-4 text-white content">
+  <div class="p-4 content-contact">
     <a :href="photographyUrl" target="_blank" title="Photography Portfolio">
       <font-awesome-icon :icon="['fas', 'camera']" :class="iconClasses" />
     </a>
@@ -12,19 +12,23 @@
     <a :href="instagramUrl" target="_blank" title="Instagram">
       <font-awesome-icon :icon="['fab', 'instagram']" :class="iconClasses" />
     </a>
+    <a :href="emailAddress" target="_blank" title="Email Me">
+      <font-awesome-icon :icon="['fas', 'envelope']" :class="iconClasses" />
+    </a>
   </div>
 </template>
 
 <script>
 export default {
-  name: "NavBar",
+  name: "ContactIcons",
   data() {
     return {
-      iconClasses: "m-2 iconStyle",
+      iconClasses: "m-2 icon-style",
       photographyUrl: "http://www.nathanalphotography.com",
       githubUrl: "http://www.github.com/kingnathanal",
       linkedinUrl: "http://linkedin.com/in/brittonwilliam",
-      instagramUrl: "https://www.instagram.com/kingnathanal/"
+      instagramUrl: "https://www.instagram.com/kingnathanal/",
+      emailAddress: "mailto:williambritton@outlook.com"
     };
   }
 };
@@ -36,29 +40,30 @@ a {
 }
 a:hover {
   color: #f3f043;
-  transition: all 0.3s ease;
 }
 .bg-blue {
   background-color: #034f84;
 }
-.iconStyle {
+.icon-style {
   font-size: 7em;
   padding: 8px;
 }
 
-font-awesome-icon {
-  margin-right: 0.5rem;
-}
-
-.content {
+.content-contact {
   -webkit-box-pack: end !important;
   justify-content: flex-end !important;
+  color: #fff;
+  text-align: right;
 }
 
 @media only screen and (max-width: 900px) {
   .content {
     -webkit-box-pack: justify !important;
     justify-content: space-between !important;
+  }
+  .icon-style {
+    font-size: 5em;
+    padding: 3px;
   }
 }
 
@@ -67,7 +72,7 @@ font-awesome-icon {
     -webkit-box-pack: justify !important;
     justify-content: space-between !important;
   }
-  .iconStyle {
+  .icon-style {
     font-size: 4em;
     padding: 3px;
   }
@@ -78,8 +83,8 @@ font-awesome-icon {
     -webkit-box-pack: justify !important;
     justify-content: space-between !important;
   }
-  .iconStyle {
-    font-size: 3em;
+  .icon-style {
+    font-size: 2em;
     padding: 8px;
   }
 }
