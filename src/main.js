@@ -19,9 +19,12 @@ import {
   faLinkedin,
   faInstagram
 } from '@fortawesome/free-brands-svg-icons'
+
 import {
   FontAwesomeIcon
 } from '@fortawesome/vue-fontawesome'
+
+import router from './router'
 
 library.add(faFontAwesome, faGithub, faLinkedin, faInstagram, faCamera, faEnvelope, faChevronDown)
 
@@ -41,5 +44,6 @@ Vue.directive('scroll', {
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App),
+  router,
+  render: h => h(App)
 }).$mount('#app')

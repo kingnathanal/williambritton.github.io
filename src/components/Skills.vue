@@ -1,17 +1,42 @@
 <template>
-  <div class="container text-center p-5">
-    <div class="h4 skills-title w-100 text-white mb-5">I have worked with many technologies</div>
-    <div class="skill-box pt-3 pb-5">
-      <span
-        v-for="(skill, i) in skills"
-        :key="i"
-        class="badge skill-badge m-1 p-2"
-        :class="getRandomBadgeColor()"
-        :style="{fontSize: getRandomFontSize()}"
-      >{{skill}}</span>
+  <div class="container">
+    <div class="row pt-4">
+      <div class="col-lg-8 col-sm-12 about-etc p-0">
+        <span class="about-title">Background:</span>
+        <br />
+        <br />
+        <span class="font-weight-bold">I specialize in creating functional software solutions.</span>
+        <br />
+        <br />I'm currently an Software Engineer. My work extends anywhere from website to desktop based applications.
+        Sometimes I also architect backend systems, everything from database designing, to application deployment,
+        containerization, operation administration and on-premise or cloud hosting.
+        <br />
+        <br />When Im not coding, I enjoy taking photos:
+        <br />
+        <a
+          href="http://www.nathanalphotography.com"
+          class="btn btn-outline-success"
+          target="_blank"
+        >Check out my portfolio</a>
+      </div>
+      <div class="col-lg-4 col-sm-12 text-center">
+        <img alt="picture of a genius" src="../assets/me.jpg" class="me-logo" />
+      </div>
     </div>
-    <font-awesome-icon :icon="['fas', 'chevron-down']" :class="['iconStyle']" />
-    <div class="clearfix"></div>
+    <div class="row my-5">
+      <div class="col p-0">
+        <div class="skills-title">Here are a few of my skills:</div>
+        <div class="skill-box pt-3">
+          <span
+            v-for="(skill, i) in skills"
+            :key="i"
+            class="badge skill-badge m-1 p-2"
+            :class="getRandomBadgeColor()"
+            :style="{fontSize: getRandomFontSize()}"
+          >{{skill}}</span>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -28,7 +53,7 @@ export default {
       return this.badgecolors[rndnum];
     },
     getRandomFontSize() {
-      var rndnum = Math.floor(Math.random() * 25 + 12);
+      var rndnum = Math.floor(Math.random() * 3 + 9);
       return rndnum + "pt";
     }
   }
@@ -37,8 +62,9 @@ export default {
 
 <style>
 .skills-title {
-  font-family: "Courier New", Courier, monospace;
   font-weight: bold;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
 }
 .skill-badge {
   min-width: 70px;
@@ -51,23 +77,49 @@ export default {
   font-size: 30pt;
 }
 .skill-box {
-  min-height: 50vh;
+  min-height: 10vh;
 }
-.iconStyle {
-  font-size: 7em;
-  padding: 8px;
-  color: white;
+.me-logo {
+  height: 300px;
+  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.671);
+}
+.about-etc {
+  font-size: 1rem;
+}
+.about-title {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+.about-title-row {
+  text-align: right;
 }
 
 @media only screen and (max-width: 900px) {
-  .skill-box {
-    min-height: 40vh;
+  .skills-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  .me-logo {
+    height: 300px;
+    margin-top: 30px;
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 450px) {
   .skills-title {
-    font-size: 1rem;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  .me-logo {
+    height: 200px;
+    margin-top: 30px;
+  }
+  .about-etc {
+    font-size: 0.9rem;
+  }
+  .about-title-row {
+    text-align: center;
   }
 }
 </style>

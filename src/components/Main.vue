@@ -1,24 +1,61 @@
 <template>
   <div class="container-fluid h-100">
-    <div class="row sticky-top">
-      <div class="col content bg-blue" v-scroll="handleScroll">
-        <h1 class="namelogo" :class="nameClass">William Britton Jr.</h1>
-        <span class="p-2 text-white" :class="noteClass">Software Engineer & DevOps Developer</span>
-      </div>
-    </div>
     <div class="row">
       <div class="col">
         <ContactIcons />
       </div>
     </div>
-    <div class="row pb-3 mb-5 skills-row">
+    <div class="row">
+      <div class="col">
+        <div class="container about-container">
+          <div class="row align-items-center">
+            <div>
+              <div class="aboutme">
+                Hi, my name is
+                <span class="name-logo">William Britton</span>. 👋
+              </div>
+              <div class="tag-line">I like techy things and I love to write code.</div>
+              <div class="about-desc">
+                <p>
+                  I am a Software Engineer & DevOps Developer,
+                  <br />based out of the Detroit area.
+                  <br />
+                  <br />
+                  <a href="brittonresume2019.pdf" class="btn btn-outline-warning">Grab My Resume</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row skills-row shadow">
       <div class="col">
         <Skills v-bind:skills="myskills" v-bind:badgecolors="badgecolors" />
       </div>
     </div>
-    <div class="row bg-light">
+    <div class="row jobs-row">
       <div class="col">
         <Jobs v-bind:jobs="jobs" />
+      </div>
+    </div>
+    <div class="row works-row shadow">
+      <div class="col">
+        <!-- Here is my work -->
+      </div>
+    </div>
+    <div class="row footer-row align-items-center">
+      <div class="col">
+        <div class="container">
+          <span>
+            Built and Designed By Me with
+            <img
+              alt="Vue logo"
+              src="../assets/logo.png"
+              class="vue-logo"
+            /> © 2020
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -57,7 +94,13 @@ export default {
         "WebSphere",
         "Open Liberty",
         "Docker",
-        "Linux"
+        "Linux",
+        "Sql Server",
+        "SSRS",
+        "SonarQube",
+        "Artifactory",
+        "Photoshop",
+        "Postgresql"
       ],
       badgecolors: [
         "",
@@ -97,20 +140,23 @@ export default {
         }
       ],
       nameClass: "name-lg",
-      noteClass: "side-note-lg"
+      noteClass: "side-note-lg",
+      nameRowClass: ""
     };
   },
   methods: {
     handleScroll() {
       /* eslint no-console: "off"*/
-      if (window.scrollY > 50) {
+      if (window.scrollY > 75) {
         this.nameClass = "name-sm";
         this.noteClass = "side-note-sm";
+        this.nameRowClass = "row-shadow sticky-top";
       }
 
-      if (window.scrollY < 50) {
+      if (window.scrollY < 75) {
         this.nameClass = "name-lg";
         this.noteClass = "side-note-lg";
+        this.nameRowClass = "";
       }
     }
   }
@@ -118,34 +164,28 @@ export default {
 </script>
 
 <style>
-body {
-  background-color: #034f84;
+.aboutme {
+  font-size: 3.6rem;
+  font-weight: bold;
 }
-.content {
-  text-align: right;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+.tag-line {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.about-container {
+  text-align: left;
   color: #fff;
 }
-.bg-blue {
-  background-color: #034f84;
+
+.about-container .row {
+  height: 96vh;
 }
-.side-note-lg {
-  font-size: 2rem;
-  letter-spacing: 6px;
-  transition: font-size 2s;
-  -webkit-transition: font-size 2s;
-  -moz-transition: font-size 2s;
-  -o-transition: font-size 2s;
-}
-.side-note-sm {
-  font-size: 1rem;
-  letter-spacing: 6px;
-  transition: font-size 2s;
-  -webkit-transition: font-size 2s;
-  -moz-transition: font-size 2s;
-  -o-transition: font-size 2s;
+
+.about-desc {
+  margin-top: 60px;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  width: 30vw;
 }
 .name-logo {
   color: #ffffff;
@@ -153,76 +193,66 @@ body {
     rgba(255, 255, 255, 0.5) 0 1px, rgba(0, 0, 0, 0.3) -1px -2px;
   letter-spacing: 6px;
   transition: font-size 2s;
-}
-.name-lg {
-  font-size: 4rem;
-  transition: font-size 2s, margin-top 2s;
-  -webkit-transition: font-size 2s;
-  -moz-transition: font-size 2s;
-  -o-transition: font-size 2s;
-  margin-top: 10px;
-}
-.name-sm {
-  font-size: 2rem;
-
-  transition: font-size 2s, margin-top 2s;
-  -webkit-transition: font-size 2s;
-  -moz-transition: font-size 2s;
-  -o-transition: font-size 2s;
-  margin-top: 5px;
+  font-family: "Pacifico", cursive !important;
 }
 .skills-row {
-  min-height: 80vh;
+  background-color: #fff;
+  padding: 20px 0px;
+}
+.works-row {
+  background-color: #fff;
+  min-height: 30vh;
+}
+.jobs-row {
+  padding: 20px;
+}
+.footer-row {
+  color: #fff;
+  padding: 10px;
+  font-size: 1rem;
+  text-align: left;
+  min-height: 5vh;
+}
+.vue-logo {
+  height: 40px;
 }
 
-@media only screen and (max-width: 900px) {
-  .name-lg,
-  .name-sm {
+@media only screen and (max-width: 1024px) {
+  .aboutme {
     font-size: 3rem;
-    letter-spacing: 3px;
   }
-  .side-note-lg,
-  .side-note-sm {
-    font-size: 1rem;
-    letter-spacing: 4px;
+  .tag-line {
+    font-size: 1.5rem;
+    margin-top: 20px;
   }
-  .content {
-    text-align: center;
-  }
-  .skills-row {
-    min-height: 60vh;
+  .about-desc {
+    width: 60vw;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .name-lg,
-  .name-sm {
-    font-size: 2rem;
-    letter-spacing: 2px;
+  .aboutme {
+    font-size: 3rem;
   }
-  .side-note-lg,
-  .side-note-sm {
-    font-size: 0.8rem;
-    letter-spacing: 3px;
+  .tag-line {
+    font-size: 1.5rem;
+    margin-top: 40px;
   }
-  .content {
-    text-align: center;
+  .about-desc {
+    width: 60vw;
   }
 }
 
 @media only screen and (max-width: 400px) {
-  .name-lg,
-  .name-sm {
+  .aboutme {
     font-size: 2rem;
-    letter-spacing: 1px;
   }
-  .side-note-lg,
-  .side-note-sm {
-    font-size: 0.7rem;
-    letter-spacing: 1px;
+  .tag-line {
+    font-size: 1.5rem;
+    margin-top: 40px;
   }
-  .content {
-    text-align: center;
+  .about-desc {
+    width: 80vw;
   }
 }
 </style>

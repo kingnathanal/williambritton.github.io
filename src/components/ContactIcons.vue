@@ -1,19 +1,13 @@
 <template>
-  <div class="p-4 content-contact">
-    <a :href="photographyUrl" target="_blank" title="Photography Portfolio">
-      <font-awesome-icon :icon="['fas', 'camera']" :class="iconClasses" />
-    </a>
-    <a :href="githubUrl" target="_blank" title="Github">
-      <font-awesome-icon :icon="['fab', 'github']" :class="iconClasses" />
-    </a>
-    <a :href="linkedinUrl" target="_blank" title="LinkedIn">
-      <font-awesome-icon :icon="['fab', 'linkedin']" :class="iconClasses" />
-    </a>
-    <a :href="instagramUrl" target="_blank" title="Instagram">
-      <font-awesome-icon :icon="['fab', 'instagram']" :class="iconClasses" />
-    </a>
-    <a :href="emailAddress" target="_blank" title="Email Me">
-      <font-awesome-icon :icon="['fas', 'envelope']" :class="iconClasses" />
+  <div class="p-3 content-contact">
+    <a
+      v-for="(item, i) in contactItems"
+      :key="i"
+      target="_blank"
+      :title="item.title"
+      :href="item.url"
+    >
+      <font-awesome-icon :icon="[item.icontype, item.iconname]" :class="iconClasses" />
     </a>
   </div>
 </template>
@@ -23,12 +17,39 @@ export default {
   name: "ContactIcons",
   data() {
     return {
-      iconClasses: "m-2 icon-style",
-      photographyUrl: "http://www.nathanalphotography.com",
-      githubUrl: "http://www.github.com/kingnathanal",
-      linkedinUrl: "http://linkedin.com/in/brittonwilliam",
-      instagramUrl: "https://www.instagram.com/kingnathanal/",
-      emailAddress: "mailto:williambritton@outlook.com"
+      iconClasses: "mx-2 icon-style",
+      contactItems: [
+        {
+          title: "Photography Portfolio",
+          icontype: "fas",
+          iconname: "camera",
+          url: "http://www.nathanalphotography.com"
+        },
+        {
+          title: "Github",
+          icontype: "fab",
+          iconname: "github",
+          url: "http://www.github.com/kingnathanal"
+        },
+        {
+          title: "LinkedIn",
+          icontype: "fab",
+          iconname: "linkedin",
+          url: "http://linkedin.com/in/brittonwilliam"
+        },
+        {
+          title: "Instagram",
+          icontype: "fab",
+          iconname: "instagram",
+          url: "https://www.instagram.com/kingnathanal/"
+        },
+        {
+          title: "Email Me",
+          icontype: "fas",
+          iconname: "envelope",
+          url: "mailto:williambritton@outlook.com"
+        }
+      ]
     };
   }
 };
@@ -45,8 +66,7 @@ a:hover {
   background-color: #034f84;
 }
 .icon-style {
-  font-size: 7em;
-  padding: 8px;
+  font-size: 2em;
 }
 
 .content-contact {
@@ -54,12 +74,15 @@ a:hover {
   justify-content: flex-end !important;
   color: #fff;
   text-align: right;
+  font-size: 1em;
 }
 
 @media only screen and (max-width: 900px) {
-  .content {
+  .content-contact {
     -webkit-box-pack: justify !important;
     justify-content: space-between !important;
+    text-align: center;
+    transition: text-align 2s;
   }
   .icon-style {
     font-size: 5em;
@@ -68,9 +91,11 @@ a:hover {
 }
 
 @media only screen and (max-width: 600px) {
-  .content {
+  .content-contact {
     -webkit-box-pack: justify !important;
     justify-content: space-between !important;
+    text-align: center;
+    transition: text-align 2s;
   }
   .icon-style {
     font-size: 4em;
@@ -78,14 +103,16 @@ a:hover {
   }
 }
 
-@media only screen and (max-width: 400px) {
-  .content {
+@media only screen and (max-width: 450px) {
+  .content-contact {
     -webkit-box-pack: justify !important;
     justify-content: space-between !important;
+    text-align: center;
+    transition: text-align 2s;
   }
   .icon-style {
     font-size: 2em;
-    padding: 8px;
+    padding: 2px;
   }
 }
 </style>
