@@ -90,6 +90,19 @@ a:hover {
   }
 }
 
+@media only screen and (max-width: 850px) {
+  .content-contact {
+    -webkit-box-pack: justify !important;
+    justify-content: space-between !important;
+    text-align: center;
+    transition: text-align 2s;
+  }
+  .icon-style {
+    font-size: 2.5em;
+    padding: 3px;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .content-contact {
     -webkit-box-pack: justify !important;

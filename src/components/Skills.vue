@@ -1,10 +1,11 @@
 <template>
-  <div class="container">
+  <div class="container p-0 my-4">
     <div class="row pt-4">
-      <div class="col-lg-8 col-sm-12 about-etc p-0">
-        <span class="about-title">Background:</span>
-        <br />
-        <br />
+      <div class="col-lg-8 col-sm-12 about-etc">
+        <span class="about-title h4">
+          Background:
+          <hr />
+        </span>
         <span class="font-weight-bold">I specialize in creating functional software solutions.</span>
         <br />
         <br />I'm currently an Software Engineer. My work extends anywhere from website to desktop based applications.
@@ -24,8 +25,11 @@
       </div>
     </div>
     <div class="row my-5">
-      <div class="col p-0">
-        <div class="skills-title">Here are a few of my skills:</div>
+      <div class="col">
+        <div class="skills-title mb-3">
+          Skills:
+          <hr />
+        </div>
         <div class="skill-box pt-3">
           <span
             v-for="(skill, i) in skills"
@@ -62,9 +66,8 @@ export default {
 
 <style>
 .skills-title {
-  font-weight: bold;
   font-size: 1.5rem;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 .skill-badge {
   min-width: 70px;
@@ -89,7 +92,7 @@ export default {
 .about-title {
   font-size: 1.5rem;
   margin-bottom: 12px;
-  font-weight: bold;
+  letter-spacing: 1px;
 }
 .about-title-row {
   text-align: right;

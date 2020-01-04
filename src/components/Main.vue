@@ -1,15 +1,20 @@
 <template>
   <div class="container-fluid h-100">
-    <div class="row">
-      <div class="col">
-        <ContactIcons />
+    <div class="row bg-blue sticky-top shadow">
+      <div class="col d-flex justify-content-between" v-scroll="handleScroll">
+        <div class="top-name-area">
+          <div class="name-logo-2 p-3">William Britton</div>
+        </div>
+        <div>
+          <ContactIcons />
+        </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row bg-blue shadow">
       <div class="col">
-        <div class="container about-container">
+        <div class="container about-container p-0">
           <div class="row align-items-center">
-            <div>
+            <div class="m-4">
               <div class="aboutme">
                 Hi, my name is
                 <span class="name-logo">William Britton</span>. 👋
@@ -29,7 +34,7 @@
         </div>
       </div>
     </div>
-    <div class="row skills-row shadow">
+    <div class="row skills-row">
       <div class="col">
         <Skills v-bind:skills="myskills" v-bind:badgecolors="badgecolors" />
       </div>
@@ -39,12 +44,12 @@
         <Jobs v-bind:jobs="jobs" />
       </div>
     </div>
-    <div class="row works-row shadow">
+    <div class="row works-row">
       <div class="col">
-        <!-- Here is my work -->
+        <Projects />
       </div>
     </div>
-    <div class="row footer-row align-items-center">
+    <div class="row footer-row align-items-center bg-blue">
       <div class="col">
         <div class="container">
           <span>
@@ -66,13 +71,15 @@
 import ContactIcons from "./ContactIcons.vue";
 import Jobs from "./Jobs.vue";
 import Skills from "./Skills.vue";
+import Projects from "./Projects";
 
 export default {
   name: "Main",
   components: {
     ContactIcons,
     Jobs,
-    Skills
+    Skills,
+    Projects
   },
   data() {
     return {
@@ -164,6 +171,9 @@ export default {
 </script>
 
 <style>
+.bg-blue {
+  background-color: #034f84;
+}
 .aboutme {
   font-size: 3.6rem;
   font-weight: bold;
@@ -195,9 +205,17 @@ export default {
   transition: font-size 2s;
   font-family: "Pacifico", cursive !important;
 }
+.name-logo-2 {
+  color: #ffffff;
+  text-shadow: rgba(0, 0, 0, 0.5) -1px 0, rgba(0, 0, 0, 0.3) 0 -1px,
+    rgba(255, 255, 255, 0.5) 0 1px, rgba(0, 0, 0, 0.3) -1px -2px;
+  letter-spacing: 6px;
+  transition: font-size 2s;
+  font-family: "Pacifico", cursive !important;
+  padding: 16px;
+}
 .skills-row {
   background-color: #fff;
-  padding: 20px 0px;
 }
 .works-row {
   background-color: #fff;
@@ -209,12 +227,12 @@ export default {
 .footer-row {
   color: #fff;
   padding: 10px;
-  font-size: 1rem;
+  font-size: 0.8rem;
   text-align: left;
   min-height: 5vh;
 }
 .vue-logo {
-  height: 40px;
+  height: 30px;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -227,6 +245,21 @@ export default {
   }
   .about-desc {
     width: 60vw;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .aboutme {
+    font-size: 2rem;
+  }
+  .tag-line {
+    font-size: 1.5rem;
+    margin-top: 10px;
+  }
+  .about-desc {
+    width: 80vw;
+    margin-top: 40px;
+    font-size: 1.2rem;
   }
 }
 
@@ -253,6 +286,9 @@ export default {
   }
   .about-desc {
     width: 80vw;
+  }
+  .top-name-area {
+    display: none;
   }
 }
 </style>
