@@ -26,7 +26,11 @@
                   <br />based out of the Detroit area.
                   <br />
                   <br />
-                  <a href="brittonresume2019.pdf" class="btn btn-outline-warning">Grab My Resume</a>
+                  <a
+                    href="brittonresume2019.pdf"
+                    target="_blank"
+                    class="btn btn-outline-warning"
+                  >Grab My Resume</a>
                 </p>
               </div>
             </div>
@@ -107,7 +111,8 @@ export default {
         "SonarQube",
         "Artifactory",
         "Photoshop",
-        "Postgresql"
+        "Postgresql",
+        "Azure"
       ],
       badgecolors: [
         "",
@@ -174,6 +179,21 @@ export default {
 .bg-blue {
   background-color: #034f84;
 }
+/*
+@media (prefers-color-scheme: dark) {
+  .bg-blue {
+    background-color: #000000;
+    color: #f2f2f2;
+  }
+  .about-container {
+    text-align: left;
+    color: #f2f2f2;
+  }
+  .name-logo {
+    color: #f2f2f2;
+  }
+}
+*/
 .aboutme {
   font-size: 3.6rem;
   font-weight: bold;
@@ -195,7 +215,7 @@ export default {
   margin-top: 60px;
   font-size: 1.2rem;
   letter-spacing: 3px;
-  width: 30vw;
+  width: 50vw;
 }
 .name-logo {
   color: #ffffff;
@@ -265,14 +285,17 @@ export default {
 
 @media only screen and (max-width: 600px) {
   .aboutme {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   .tag-line {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-top: 40px;
   }
   .about-desc {
-    width: 60vw;
+    width: 80vw;
+  }
+  .top-name-area {
+    display: none;
   }
 }
 

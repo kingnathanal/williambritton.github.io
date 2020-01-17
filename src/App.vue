@@ -30,6 +30,14 @@ body {
   background-color: #fff;
   font-family: "Montserrat", sans-serif !important;
 }
+/*
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000000;
+    color: #f2f2f2;
+  }
+}
+*/
 
 #app {
 }

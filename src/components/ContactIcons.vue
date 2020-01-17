@@ -68,7 +68,9 @@ a:hover {
 .icon-style {
   font-size: 2em;
 }
-
+.icon-style.resume-btn {
+  font-size: 0.7rem;
+}
 .content-contact {
   -webkit-box-pack: end !important;
   justify-content: flex-end !important;

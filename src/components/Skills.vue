@@ -14,6 +14,7 @@
         <br />
         <br />When Im not coding, I enjoy taking photos:
         <br />
+        <br />
         <a
           href="http://www.nathanalphotography.com"
           class="btn btn-outline-success"
@@ -25,12 +26,12 @@
       </div>
     </div>
     <div class="row my-5">
-      <div class="col">
+      <div class="col mt-3">
         <div class="skills-title mb-3">
           Skills:
           <hr />
         </div>
-        <div class="skill-box pt-3">
+        <div class="skill-box pt-1">
           <span
             v-for="(skill, i) in skills"
             :key="i"
@@ -83,7 +84,7 @@ export default {
   min-height: 10vh;
 }
 .me-logo {
-  height: 300px;
+  height: 250px;
   box-shadow: 0 0px 15px rgba(0, 0, 0, 0.671);
 }
 .about-etc {
@@ -104,7 +105,7 @@ export default {
     font-size: 1.5rem;
   }
   .me-logo {
-    height: 300px;
+    height: 200px;
     margin-top: 30px;
   }
 }
