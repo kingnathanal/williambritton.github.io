@@ -10,7 +10,9 @@
         <br />
         <br />I'm currently an Software Engineer. My work extends anywhere from website to desktop based applications.
         Sometimes I also architect backend systems, everything from database designing, to application deployment,
-        containerization, operation administration and on-premise or cloud hosting.
+        containerization, operation administration and on-premise or cloud hosting. 
+        <br />
+        <br />I am currently looking for contributing opportunities in the open source community...
         <br />
         <br />When Im not coding, I enjoy taking photos:
         <br />
@@ -32,13 +34,13 @@
           <hr />
         </div>
         <div class="skill-box pt-1">
-          <span
+          <button type="button"
             v-for="(skill, i) in skills"
             :key="i"
-            class="badge skill-badge m-1 p-2"
+            class="btn btn-sm skill-badge m-1 p-2"
             :class="getRandomBadgeColor()"
             :style="{fontSize: getRandomFontSize()}"
-          >{{skill}}</span>
+          >{{skill}}</button>
         </div>
       </div>
     </div>
@@ -75,7 +77,6 @@ export default {
   text-align: center;
   font-size: 16pt;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 .skill-badge:hover {
   font-size: 30pt;

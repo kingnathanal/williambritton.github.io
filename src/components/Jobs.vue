@@ -6,7 +6,7 @@
     </div>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
       <div v-for="(job, i) in jobs" :key="i" class="col mb-4">
-        <div class="card job-card border-0 shadow p-0">
+        <div class="card job-card border-0 shadow-lg p-0">
           <div class="card-header job-card-header d-flex justify-content-between">
             <span>{{job.name}}</span>
             <span>{{job.years}}</span>
@@ -14,6 +14,9 @@
           <div class="card-body job-card-body">
             <span class="job-position">{{job.position}}</span>
             <hr class="bg-secondary" />
+            <ul class="job-skills-list">
+              <li v-for="(skill, i) in job.skills" :key="i" class="job-skills">{{skill}}</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -52,5 +55,11 @@ export default {
   font-style: italic;
   font-weight: 600;
   font-size: 0.7rem;
+}
+.job-skills {
+  font-size: 0.7rem;
+}
+.job-skills-list {
+  padding-inline-start: 20px;
 }
 </style>

@@ -33,6 +33,10 @@
               class="project-link"
             >View Site</a>
           </div>
+          <hr>
+          <div class="text-center mt-5">
+            <strong>much more to come...</strong>
+          </div>
         </div>
       </div>
     </div>

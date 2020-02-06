@@ -116,39 +116,84 @@ export default {
       ],
       badgecolors: [
         "",
-        "badge-primary",
-        "badge-secondary",
-        "badge-success",
-        "badge-danger",
-        "badge-warning",
-        "badge-info",
-        "badge-dark"
+        "btn-outline-primary",
+        "btn-outline-secondary",
+        "btn-outline-success",
+        "btn-outline-danger",
+        "btn-outline-warning",
+        "btn-outline-info",
+        "btn-outline-dark"
+        //"badge-primary",
+        //"badge-secondary",
+        //"badge-success",
+        //"badge-danger",
+        //"badge-warning",
+        //"badge-info",
+        //"badge-dark",
       ],
       jobs: [
         {
           name: "Sunsoft Technologies",
           years: "2019 - current",
-          position: "Senior Software Engineer"
+          position: "Senior Software Engineer",
+          skills: [
+            "Software Developer for Detroit Diesel Mechatronics Engineering",
+            "Spring MVC and Spring Boot application development",
+            "Administration of DevOps toolchain: GitLab, Jenkins, Artifactory",
+            "Docker with pipeline integration and deployment",
+            "Oracle PL/SQL, SQL Server Database development"
+          ]
         },
         {
           name: "DXC Technology",
           years: "2014 - 2019",
-          position: "Application Consultant Developer II"
+          position: "Application Consultant Developer II",
+          skills: [
+            "Java/J2EE Development",
+            "Full stack application development: HTML CSS JavaScript",
+            "SOAP, Restful Webservice creation and support",
+            "Oracle PL/SQL, SQL Server Database development"
+          ]
         },
         {
           name: "Covisint Corp",
           years: "2013-2014",
-          position: "DevOps .Net Developer"
+          position: "DevOps .Net Developer",
+          skills: [
+            ".Net/C# ASP.NET Developement, minor J",
+            "IIS and Linux Tomcat/Glassfish server operations administrator",
+            "Database Development, SSRS, SSIS, Sql Server administration"
+          ]
         },
         {
           name: "Hewlett Packard",
           years: "2011-2013",
-          position: "Information Developer II"
+          position: "Information Developer II",
+          skills: [
+            "Java/J2EE application developement for Mechatronics data",
+            "Full stack development; HTML, CSS, JavaScript, Java POJO, DAO",
+            "Database object design and sql script creation"
+          ]
         },
         {
           name: "The State of Michigan",
           years: "2010-2011",
-          position: "Junior Java/J2EE Developer"
+          position: "Junior Java/J2EE Developer",
+          skills: [
+            "Java/J2EE development with Struts Framework",
+            "Creation of JSP, HTML, CSS, Javascript web page elements",
+            "JBoss application server administration"
+          ]
+        },
+        {
+          name: "Coca-Cola Enterprises",
+          years: "2004-2010",
+          position: "Large Store Account Manager",
+          skills: [
+            "Selling of new products and promotions",
+            "Management of store inventory levels",
+            "Product and Point of Sale placement"
+          ]
         }
       ],
       nameClass: "name-lg",
